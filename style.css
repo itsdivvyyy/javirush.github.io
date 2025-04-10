@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Reset + base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(ellipse at top, #0f0f1f 0%, #000010 100%);
+  color: #fdfdfd;
+  font-family: 'Orbitron', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding: 2rem;
+  animation: fadeIn 1s ease-out;
+}
+
+.container {
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Tagline */
+.tagline {
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: #e0e0ff;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 8px #8ab4f8, 0 0 20px #f0f;
+}
+.tagline span {
+  display: block;
+  font-size: 1.2rem;
+  color: #a0cfff;
+  margin-top: 0.5rem;
+}
+
+/* Chrome-glow buttons */
+.buttons a {
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  background: #000010;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #5ef1f2, #b37eff) 1;
+  border-radius: 2rem;
+  color: #fdfdfd;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 12px rgba(94, 241, 242, 0.4), 0 0 25px rgba(179, 126, 255, 0.3);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.buttons a::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+  animation: pulse 4s infinite;
+  z-index: 0;
+}
+
+.buttons a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px #5ef1f2, 0 0 40px #b37eff;
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .tagline {
+    font-size: 1.2rem;
+  }
+
+  .buttons a {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
